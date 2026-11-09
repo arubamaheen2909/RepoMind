@@ -1,0 +1,19 @@
+node_modules
+dist
+.venv
+__pycache__
+.env
+
+# macOS and Python temporary files
+.DS_Store
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+*.log
+venv/
+
+# Local RepoMind analysis cache
+backend/.repomind_cache/
+
+backend/.repomind_cache/
+README.txt
