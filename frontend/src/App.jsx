@@ -362,6 +362,86 @@ export default function App() {
       <section id="architecture" className="content-section architecture-section">
         <div className="section-heading"><div><span className="eyebrow">UNDER THE HOOD</span><h2>A focused pipeline.<br/><em>Connected intelligence.</em></h2></div><p>RepoMind combines repository retrieval, backend processing and AI-generated explanations in a clear application flow.</p></div>
         <div className="architecture-flow"><div className="architecture-node"><span>01</span><b>Developer</b><small>Public GitHub URL</small></div><i>↓</i><div className="architecture-node"><span>02</span><b>React frontend</b><small>React 18 · Vite 5 · CSS</small></div><i>↓</i><div className="architecture-node active-node"><span>03</span><b>FastAPI backend</b><small>Python · HTTPX · Uvicorn</small></div><i>↓</i><div className="architecture-split"><div className="architecture-node"><span>04A</span><b>GitHub API</b><small>Metadata · Files · Commits</small></div><div className="architecture-node"><span>04B</span><b>Groq AI</b><small>GPT-OSS models</small></div></div><i>↓</i><div className="architecture-node final-node"><span>05</span><b>RepoMind reports</b><small>Structured insights · Saved cache · Dashboard</small></div></div>
+        <div className="rm-signal-panel">
+          <div className="rm-signal-heading">
+            <div>
+              <span className="eyebrow">THE JOURNEY OF A REPOSITORY</span>
+              <h3>Follow the <em>signal.</em></h3>
+            </div>
+            <span className="rm-signal-status"><i /> WORKFLOW VISUALIZATION</span>
+          </div>
+          <div className="rm-signal-stage">
+            <svg className="rm-signal-svg" viewBox="0 0 1000 310" role="img" aria-label="Animated architecture workflow from user input through React, FastAPI, GitHub API, Groq AI and generated reports">
+              <defs>
+                <filter id="rmSignalGlow" x="-300%" y="-300%" width="600%" height="600%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+                <linearGradient id="rmSignalLine" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#C58B78" stopOpacity="0.28" />
+                  <stop offset="50%" stopColor="#E8D5C9" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#C58B78" stopOpacity="0.28" />
+                </linearGradient>
+              </defs>
+
+              <path className="rm-signal-track" d="M 90 166 C 150 166 190 86 250 86 S 360 166 420 166 S 520 86 580 86 S 680 166 740 166 S 850 86 910 86" />
+              <path className="rm-signal-track rm-signal-track-glow" d="M 90 166 C 150 166 190 86 250 86 S 360 166 420 166 S 520 86 580 86 S 680 166 740 166 S 850 86 910 86" />
+
+              <g className="rm-signal-node rm-signal-node-1">
+                <circle className="rm-signal-halo" cx="90" cy="166" r="39" />
+                <circle className="rm-signal-core" cx="90" cy="166" r="28" />
+                <text className="rm-signal-number" x="90" y="172" textAnchor="middle">01</text>
+                <text className="rm-signal-label" x="90" y="226" textAnchor="middle">USER INPUT</text>
+                <text className="rm-signal-sub" x="90" y="244" textAnchor="middle">GitHub URL</text>
+              </g>
+              <g className="rm-signal-node rm-signal-node-2">
+                <circle className="rm-signal-halo" cx="250" cy="86" r="39" />
+                <circle className="rm-signal-core" cx="250" cy="86" r="28" />
+                <text className="rm-signal-number" x="250" y="92" textAnchor="middle">02</text>
+                <text className="rm-signal-label" x="250" y="146" textAnchor="middle">REACT UI</text>
+                <text className="rm-signal-sub" x="250" y="164" textAnchor="middle">Vercel · Vite</text>
+              </g>
+              <g className="rm-signal-node rm-signal-node-3">
+                <circle className="rm-signal-halo" cx="420" cy="166" r="39" />
+                <circle className="rm-signal-core" cx="420" cy="166" r="28" />
+                <text className="rm-signal-number" x="420" y="172" textAnchor="middle">03</text>
+                <text className="rm-signal-label" x="420" y="226" textAnchor="middle">FASTAPI</text>
+                <text className="rm-signal-sub" x="420" y="244" textAnchor="middle">Render · Python</text>
+              </g>
+              <g className="rm-signal-node rm-signal-node-4a">
+                <circle className="rm-signal-halo" cx="580" cy="86" r="39" />
+                <circle className="rm-signal-core" cx="580" cy="86" r="28" />
+                <text className="rm-signal-number" x="580" y="92" textAnchor="middle">04A</text>
+                <text className="rm-signal-label" x="580" y="146" textAnchor="middle">GITHUB API</text>
+                <text className="rm-signal-sub" x="580" y="164" textAnchor="middle">Repository data</text>
+              </g>
+              <g className="rm-signal-node rm-signal-node-4b">
+                <circle className="rm-signal-halo" cx="740" cy="166" r="39" />
+                <circle className="rm-signal-core" cx="740" cy="166" r="28" />
+                <text className="rm-signal-number" x="740" y="172" textAnchor="middle">04B</text>
+                <text className="rm-signal-label" x="740" y="226" textAnchor="middle">GROQ AI</text>
+                <text className="rm-signal-sub" x="740" y="244" textAnchor="middle">GPT-OSS analysis</text>
+              </g>
+              <g className="rm-signal-node rm-signal-node-5">
+                <circle className="rm-signal-halo" cx="910" cy="86" r="39" />
+                <circle className="rm-signal-core" cx="910" cy="86" r="28" />
+                <text className="rm-signal-number" x="910" y="92" textAnchor="middle">05</text>
+                <text className="rm-signal-label" x="910" y="146" textAnchor="middle">REPORTS</text>
+                <text className="rm-signal-sub" x="910" y="164" textAnchor="middle">Five views · 24h cache</text>
+              </g>
+
+              <g className="rm-signal-star" filter="url(#rmSignalGlow)">
+                <path d="M 0 -15 L 4 -4 L 15 0 L 4 4 L 0 15 L -4 4 L -15 0 L -4 -4 Z">
+                  <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" path="M 90 166 C 150 166 190 86 250 86 S 360 166 420 166 S 520 86 580 86 S 680 166 740 166 S 850 86 910 86" />
+                </path>
+              </g>
+            </svg>
+          </div>
+          <div className="rm-signal-footer">
+            <span><i /> SIGNAL PATH</span>
+            <span>Illustrative workflow animation · not a live API trace</span>
+          </div>
+        </div>
       </section>
 
       <section id="technology" className="content-section technology-section">

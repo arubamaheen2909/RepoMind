@@ -780,3 +780,300 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .site-header nav { background: rgba(16,13,18,.98) !important; border-bottom: 1px solid rgba(197,139,120,.25) !important; }
   .site-header nav a { color: var(--rm-champagne) !important; }
 }
+
+/* RepoMind animated signal path — added beneath the original architecture diagram */
+.rm-signal-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 28px 0 0;
+  padding: 24px 22px 18px;
+  border: 1px solid rgba(197,139,120,.36);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(117,31,59,.30), transparent 68%),
+    linear-gradient(135deg, rgba(75,16,38,.76), rgba(16,13,18,.97) 72%);
+  box-shadow: 0 18px 48px rgba(0,0,0,.28), inset 0 1px 0 rgba(232,213,201,.08);
+}
+.rm-signal-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(112deg, transparent 15%, rgba(232,213,201,.035) 48%, transparent 78%);
+}
+.rm-signal-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:0 4px 8px; }
+.rm-signal-heading h3 { margin:5px 0 0; color:var(--rm-ivory); font-size:clamp(1.35rem,2.4vw,1.85rem); letter-spacing:-.035em; }
+.rm-signal-heading h3 em { color:var(--rm-champagne); font-style:normal; }
+.rm-signal-status { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border:1px solid rgba(197,139,120,.28); border-radius:999px; color:var(--rm-champagne); font: .61rem 'DM Mono',monospace; letter-spacing:.12em; white-space:nowrap; }
+.rm-signal-status i, .rm-signal-footer span:first-child i { width:7px; height:7px; display:inline-block; border-radius:50%; background:var(--rm-rose); box-shadow:0 0 12px rgba(197,139,120,.85); }
+.rm-signal-stage { width:100%; overflow:hidden; }
+.rm-signal-svg { display:block; width:100%; height:auto; overflow:visible; }
+.rm-signal-track { fill:none; stroke:rgba(197,139,120,.38); stroke-width:2.2; stroke-linecap:round; }
+.rm-signal-track-glow { stroke:url(#rmSignalLine); stroke-width:1.4; stroke-dasharray:5 12; animation:rmSignalDash 1.15s linear infinite; opacity:.9; }
+.rm-signal-core { fill:rgba(75,16,38,.96); stroke:rgba(232,213,201,.72); stroke-width:1.6; }
+.rm-signal-halo { fill:rgba(197,139,120,.06); stroke:rgba(197,139,120,.34); stroke-width:1.4; transform-box:fill-box; transform-origin:center; opacity:.46; animation:rmSignalPulse 10s ease-out infinite; }
+.rm-signal-node-2 .rm-signal-halo { animation-delay:1.66s; }
+.rm-signal-node-3 .rm-signal-halo { animation-delay:3.33s; }
+.rm-signal-node-4a .rm-signal-halo { animation-delay:5s; }
+.rm-signal-node-4b .rm-signal-halo { animation-delay:6.66s; }
+.rm-signal-node-5 .rm-signal-halo { animation-delay:8.33s; }
+.rm-signal-number { fill:var(--rm-ivory); font:600 13px 'DM Mono',monospace; letter-spacing:-.04em; }
+.rm-signal-label { fill:var(--rm-ivory); font:700 12px Inter,system-ui,sans-serif; letter-spacing:.09em; }
+.rm-signal-sub { fill:var(--rm-champagne); font:10px Inter,system-ui,sans-serif; opacity:.82; }
+.rm-signal-star path { fill:var(--rm-champagne); stroke:#fff2df; stroke-width:.7; }
+.rm-signal-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 4px 0; border-top:1px solid rgba(197,139,120,.17); color:rgba(232,213,201,.57); font-size:.68rem; }
+.rm-signal-footer span:first-child { display:inline-flex; align-items:center; gap:8px; color:var(--rm-champagne); font: .6rem 'DM Mono',monospace; letter-spacing:.12em; }
+@keyframes rmSignalDash { to { stroke-dashoffset:-34; } }
+@keyframes rmSignalPulse {
+  0%, 7% { opacity:.2; transform:scale(.86); stroke:rgba(197,139,120,.35); }
+  11%, 19% { opacity:1; transform:scale(1.24); stroke:rgba(232,213,201,.95); }
+  27%, 100% { opacity:.22; transform:scale(.9); stroke:rgba(197,139,120,.35); }
+}
+@media (max-width:700px) {
+  .rm-signal-panel { padding:18px 10px 13px; border-radius:18px; }
+  .rm-signal-heading { align-items:flex-start; flex-direction:column; }
+  .rm-signal-status { font-size:.55rem; }
+  .rm-signal-svg { min-width:680px; width:100%; }
+  .rm-signal-stage { overflow-x:auto; overscroll-behavior-x:contain; padding-bottom:5px; }
+  .rm-signal-footer { align-items:flex-start; flex-direction:column; font-size:.62rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rm-signal-track-glow, .rm-signal-halo { animation:none !important; }
+  .rm-signal-star { display:none; }
+  .rm-signal-halo { opacity:.7; }
+}
+
+/* REPOMIND HERITAGE LUXE INTERACTION POLISH */
+/* A restrained visual layer: no layout replacement and no runtime/API changes. */
+
+/* 1) Hero: a slow champagne sheen and gentle lift on the existing visual. */
+.hero-section .visual-window,
+.hero-section .hero-visual .visual-window {
+  animation: rmLuxeHeroFloat 8s ease-in-out infinite,
+             rmLuxeHeroGlow 6.5s ease-in-out infinite;
+  transform-origin: 50% 55%;
+  will-change: transform, box-shadow;
+}
+.hero-section .floating-chip,
+.hero-section .hero-visual .floating-chip {
+  animation: rmLuxeChipDrift 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+.hero-section .floating-chip:nth-of-type(2) { animation-delay: -1.8s; }
+.hero-section .floating-chip:nth-of-type(3) { animation-delay: -3.2s; }
+.hero-section .badge::before {
+  animation: rmLuxeBadgePulse 2.8s ease-in-out infinite;
+}
+
+/* 2) Feature cards: subtle lift, warm edge-light and icon response. */
+#capabilities .feature-card,
+#capabilities .feature-card-trigger,
+#features .feature-card,
+#features .feature-card-trigger {
+  transition: transform .28s ease, border-color .28s ease,
+              box-shadow .28s ease, background-color .28s ease;
+  transform: translateZ(0);
+}
+#capabilities .feature-card:hover,
+#capabilities .feature-card:focus-within,
+#capabilities .feature-card-trigger:hover,
+#capabilities .feature-card-trigger:focus-visible,
+#features .feature-card:hover,
+#features .feature-card:focus-within,
+#features .feature-card-trigger:hover,
+#features .feature-card-trigger:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(232,213,201,.68) !important;
+  box-shadow: 0 16px 36px rgba(0,0,0,.28),
+              0 0 24px rgba(197,139,120,.14) !important;
+  outline: none;
+}
+#capabilities .feature-card-trigger:hover .feature-icon,
+#capabilities .feature-card-trigger:focus-visible .feature-icon,
+#features .feature-card-trigger:hover .feature-icon,
+#features .feature-card-trigger:focus-visible .feature-icon {
+  transform: translateY(-2px) scale(1.06);
+  filter: drop-shadow(0 0 10px rgba(232,213,201,.42));
+}
+#capabilities .feature-icon,
+#features .feature-icon {
+  transition: transform .28s ease, filter .28s ease;
+}
+.feature-detail {
+  animation: rmLuxeDetailReveal .32s ease both;
+  transform-origin: top center;
+}
+
+/* 3) AI activity: make the existing loading state feel intentional, not stalled. */
+.loading-state,
+.loader {
+  position: relative;
+  border-color: rgba(197,139,120,.28) !important;
+}
+.loading-state span,
+.loader span {
+  color: var(--rm-champagne, #E8D5C9) !important;
+  text-shadow: 0 0 16px rgba(197,139,120,.18);
+}
+.loading-state i,
+.loader i {
+  background: var(--rm-champagne, #E8D5C9) !important;
+  box-shadow: 0 0 12px rgba(232,213,201,.62),
+              0 0 22px rgba(197,139,120,.25);
+  animation: rmLuxeLoadingDot 1.05s ease-in-out infinite;
+}
+.loading-state i:nth-child(2),
+.loader i:nth-child(2) { animation-delay: .16s; }
+.loading-state i:nth-child(3),
+.loader i:nth-child(3) { animation-delay: .32s; }
+
+/* 4) Report arrival: existing metric cards enter with a soft stagger. */
+.overview-metrics .metric-card,
+.stats > div:not(.bars) {
+  animation: rmLuxeReportArrive .55s cubic-bezier(.2,.75,.25,1) both;
+  border-color: rgba(197,139,120,.22);
+}
+.overview-metrics .metric-card:nth-child(2),
+.stats > div:not(.bars):nth-child(2) { animation-delay: .08s; }
+.overview-metrics .metric-card:nth-child(3),
+.stats > div:not(.bars):nth-child(3) { animation-delay: .16s; }
+.overview-metrics .metric-card:nth-child(4),
+.stats > div:not(.bars):nth-child(4) { animation-delay: .24s; }
+.report-tabs button,
+.tabs button {
+  transition: color .2s ease, border-color .2s ease, background .2s ease,
+              box-shadow .2s ease;
+}
+.report-tabs button:hover,
+.tabs button:hover {
+  color: var(--rm-ivory, #F7F1ED) !important;
+  text-shadow: 0 0 12px rgba(232,213,201,.24);
+}
+
+@keyframes rmLuxeHeroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes rmLuxeHeroGlow {
+  0%, 100% { box-shadow: 0 18px 48px rgba(0,0,0,.25), 0 0 0 rgba(197,139,120,0); }
+  50% { box-shadow: 0 22px 54px rgba(0,0,0,.3), 0 0 26px rgba(197,139,120,.12); }
+}
+@keyframes rmLuxeChipDrift {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-1deg); }
+}
+@keyframes rmLuxeBadgePulse {
+  0%, 100% { opacity: .7; box-shadow: 0 0 7px currentColor; }
+  50% { opacity: 1; box-shadow: 0 0 14px currentColor; }
+}
+@keyframes rmLuxeLoadingDot {
+  0%, 80%, 100% { transform: scale(.72); opacity: .48; }
+  40% { transform: scale(1.18); opacity: 1; }
+}
+@keyframes rmLuxeDetailReveal {
+  from { opacity: 0; transform: translateY(-7px) scale(.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes rmLuxeReportArrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .visual-window,
+  .hero-section .hero-visual .visual-window,
+  .hero-section .floating-chip,
+  .hero-section .hero-visual .floating-chip,
+  .hero-section .badge::before,
+  .loading-state i,
+  .loader i,
+  .feature-detail,
+  .overview-metrics .metric-card,
+  .stats > div:not(.bars) {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* REPOMIND TECHNOLOGY STACK MOTION — HERITAGE LUXE */
+/* Focused enhancement: only the existing Technology Stack cards are animated. */
+.technology-section .tech-grid > .reveal { overflow: visible; }
+.technology-section .tech-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  translate: 0 0;
+  animation: rmTechCardFloat 7.2s ease-in-out infinite;
+  transition: transform .32s cubic-bezier(.2,.75,.25,1),
+              translate .32s ease, border-color .32s ease,
+              box-shadow .32s ease;
+  will-change: translate, box-shadow;
+}
+.technology-section .tech-grid > .reveal:nth-child(2) .tech-card { animation-delay: -1.4s; }
+.technology-section .tech-grid > .reveal:nth-child(3) .tech-card { animation-delay: -2.8s; }
+.technology-section .tech-grid > .reveal:nth-child(4) .tech-card { animation-delay: -4.2s; }
+.technology-section .tech-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -45%;
+  bottom: -45%;
+  left: -65%;
+  width: 42%;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(232,213,201,.025) 28%, rgba(232,213,201,.17) 50%, rgba(197,139,120,.08) 64%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: rmTechCardSheen 8.5s ease-in-out infinite;
+}
+.technology-section .tech-grid > .reveal:nth-child(2) .tech-card::before { animation-delay: -2s; }
+.technology-section .tech-grid > .reveal:nth-child(3) .tech-card::before { animation-delay: -4s; }
+.technology-section .tech-grid > .reveal:nth-child(4) .tech-card::before { animation-delay: -6s; }
+.technology-section .tech-card > * { position: relative; z-index: 1; }
+.technology-section .tech-card:hover,
+.technology-section .tech-card:focus-within {
+  translate: 0 -8px;
+  transform: scale(1.015);
+  border-color: rgba(232,213,201,.84) !important;
+  box-shadow: 0 22px 48px rgba(0,0,0,.34), 0 0 30px rgba(197,139,120,.2) !important;
+}
+.technology-section .tech-index {
+  transition: color .3s ease, text-shadow .3s ease, transform .3s ease;
+}
+.technology-section .tech-card:hover .tech-index,
+.technology-section .tech-card:focus-within .tech-index {
+  color: var(--rm-champagne, #E8D5C9) !important;
+  text-shadow: 0 0 18px rgba(232,213,201,.58);
+  transform: translateX(3px);
+}
+.technology-section .tech-pills span {
+  transition: transform .24s ease, border-color .24s ease, color .24s ease, box-shadow .24s ease;
+}
+.technology-section .tech-pills span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(232,213,201,.65) !important;
+  color: var(--rm-ivory, #F7F1ED) !important;
+  box-shadow: 0 5px 16px rgba(197,139,120,.18);
+}
+@keyframes rmTechCardFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+@keyframes rmTechCardSheen {
+  0%, 16% { left: -65%; opacity: 0; }
+  24% { opacity: 1; }
+  56% { left: 130%; opacity: .78; }
+  57%, 100% { left: 130%; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .technology-section .tech-card,
+  .technology-section .tech-card::before {
+    animation: none !important;
+    transition: none !important;
+    translate: none !important;
+    transform: none !important;
+  }
+}
+
